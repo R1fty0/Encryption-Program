@@ -114,33 +114,27 @@ class FileWrite:
         else:
             self.writeStringOverFile(fileName, stringToWrite)
 
+    """
+        My Methods
+    """
+
+    # TODO
+
+    # Create a method that can join 3 different files together into a single file
+
+    def merge_files(self, files):
+        """ Merges 3 different files together into a single file."""
+        pass
+
+    def create_copy_of_file_based_on_alphabetic_order(self, originalFile):
+        """ Creates a copy of a given file that arranges the contents in alphabetical order."""
+        pass
+
+    def create_copy_of_file_based_on_word_length(self, originalFile):
+        "Create a method that creates a new file with the contents of the ‘AllWords.txt’ file sorted by word length rather than alphabetically"
+        pass
 
 
-"""
-    My Ulitlty Methods
-"""
-
-# TODO
-
-# Create a method that can join 3 different files together into a single file
-
-
-def merge_files(self, files):
-    """ Merges 3 different files together into a single file."""
-    pass
-
-
-def create_copy_of_file_based_on_alphabetic_order(self, originalFile):
-    """ Creates a copy of a given file that arranges the contents in alphabetical order."""
-    pass
-
-
-def create_copy_of_file_based_on_word_length(self, originalFile):
-    pass
-
-
-# Create a method that creates a new file with the contents of the ‘AllWords.txt’ file sorted by word length rather than alphabetically
-
-def write_data_to_file(self, data, file):
-    # Create a method that writes all sent data (either a String or a List) to a file with a common format decided by you
-    pass
+    def write_data_to_file(self, data, file):
+        "Create a method that writes all sent data (either a String or a List) to a file with a common format decided by you"
+        pass

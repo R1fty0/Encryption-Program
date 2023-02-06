@@ -1,4 +1,5 @@
-# Python file open(fileName, access mode) access modes
+# Python file open(fileName, access mode)
+# access modes:
 # 'r' = read only mode
 # 'w' = write only mode - erases everything that was there already!
 # 'a' = append mode (write without replacing data)
@@ -7,7 +8,7 @@
 # Python file functions
 # read() - return whole file
 # readline() - returns one line of the file
-# readlines() = returns ALL lines in a list (1 line per entry)
+# readlines() = returns ALL lines in a file (1 line per entry)
 
 # MBM = Made by me (Mohit).
 
@@ -64,30 +65,39 @@ class FileRead:
                 i -= 1  # after removing an entry, we need to move back a step (the list is now 1 shorter)
         return data
 
+    """
+        My Functions
+    """
 
-"""
-     My Utility Methods
-     
-"""
+    def get_total_number_of_lines(self, file) -> int:  # Needs to be debugged
+        """ Returns the total number of lines of data in a file. """
+        numOfLines = list()  # Stores lines in list
+        try:
+            with open(file, 'r') as reader:  # Open file
+                data = reader.readlines()  # Read a line from the file
+                numOfLines.append(data)  # Add line to list
+                reader.readlines()  # Read next line
+            return len(numOfLines)  # Return the length of the list
+        except IOError:
+            print(f'Unable to read from file: ', {file})
 
+    def get_total_characters(self) -> int:
+        """ Returns the total number of characters in a file. """
+        pass
 
-def get_total_number_of_lines(self, file):
-    """ Returns the total number of lines of data in a file. """
-    with open(file, 'r') as file:
-        return sum(1 for line in file)
-    pass
+    def is_keyword_present(self, file, word) -> bool:  # if text.find(word) != -1: was debugged with ChatGPT
+        """ Returns whether a file contains a given word or phrase. """
+        try:
+            with open(file, 'r') as reader:  # Open file
+                text = reader.read()  # Read entire file
+                if text.find(word) != -1:  # Check if file has word
+                    return True
+                else:
+                    return False
 
+        except IOError:
+            print("Something went wrong!")
 
-def get_total_characters(self):
-    """ Returns the total number of characters in a file. """
-    pass
-
-
-def is_keyword_present(self, word):
-    """ Returns whether a file contains a given word or phrase. """
-    pass
-
-
-def get_words_of_certain_length(self, length):
-    """ Returns a list that only includes words of a certain length. """
-    pass
+    def get_words_of_certain_length(self, length) -> list:
+        """ Returns a list that only includes words of a certain length. """
+        pass
