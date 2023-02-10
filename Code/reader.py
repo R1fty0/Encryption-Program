@@ -10,7 +10,6 @@
 # readline() - returns one line of the file
 # readlines() = returns ALL lines in a file (1 line per entry)
 
-# MBM = Made by me (Mohit).
 
 class FileRead:
 
@@ -34,7 +33,7 @@ class FileRead:
                 print(line)
                 line = reader.readline()  # update line with next line data
 
-    def getFileAllLines(self, file):
+    def getFileAllLines(self, file) -> list:
         """ Returns a list of file contents, 1 line per entry """
         data = list()
 
@@ -69,17 +68,16 @@ class FileRead:
         My Functions
     """
 
-    def get_total_number_of_lines(self, file) -> int:  # Needs to be debugged
+    def get_total_number_of_lines(self, file) -> int:
         """ Returns the total number of lines of data in a file. """
-        numOfLines = list()  # Stores lines in list
+        num_of_lines = 0  # Initialize line counter
         try:
-            with open(file, 'r') as reader:  # Open file
-                data = reader.readlines()  # Read a line from the file
-                numOfLines.append(data)  # Add line to list
-                reader.readlines()  # Read next line
-            return len(numOfLines)  # Return the length of the list
+            with open(file, 'r') as reader:
+                for _ in reader:  # Loop through each line in the file
+                    num_of_lines += 1  # Increment line counter
+            return num_of_lines  # Return the final line count
         except IOError:
-            print(f'Unable to read from file: ', {file})
+            print(f'Unable to read from file: {file}')
 
     def get_total_characters(self) -> int:
         """ Returns the total number of characters in a file. """
