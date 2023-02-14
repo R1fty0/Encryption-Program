@@ -64,6 +64,11 @@ class FileRead:
                 i -= 1  # after removing an entry, we need to move back a step (the list is now 1 shorter)
         return data
 
+
+
+
+
+
     """
         My Functions
     """
@@ -79,9 +84,9 @@ class FileRead:
         except IOError:
             print(f'Unable to read from file: {file}')
 
-    def get_total_characters(self) -> int:
+    def get_total_characters(self, file) -> int:
         """ Returns the total number of characters in a file. """
-        pass
+
 
     def is_keyword_present(self, file, word) -> bool:  # if text.find(word) != -1: was debugged with ChatGPT
         """ Returns whether a file contains a given word or phrase. """

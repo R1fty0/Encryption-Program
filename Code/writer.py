@@ -137,9 +137,11 @@ class FileWrite:
 
     def create_copy_of_file_based_on_word_length(self, original_file):
         """ Create a method that creates a new file with the contents of the ‘AllWords.txt’ file sorted by word length rather than alphabetically. """
-        pass
-
-
+        with open(original_file, 'r') as reader:
+            text = reader.readlines()
+            for data in text:
+                pass
+                # Resort the list based on word length.
     def write_data_to_file(self, data, file):
         """ Create a method that writes all sent data (either a String or a List) to a file with a common format decided by you. """
         try:

@@ -1,32 +1,12 @@
 from reader import FileRead
 from writer import FileWrite
-Border = "_____________________________________________"
-
-
-FR = None  # File Read
-FW = None  # File Write
-
-random_list = ["Hello", "Cool", "World"]
-
-
-def test_beginning():
-    """ Sets up the things need for the test."""
-    global FR, FW
-    FR = FileRead()
-    FW = FileWrite()
-    print("T1 passed")
-    test()
-
-
-def test():
-    """ Testing occurs here. """
-    FW.write_data_to_file(random_list, "A.txt")
-    print("T2 passed")
 
 
 
+reader = FileRead()
+num = reader.get_total_characters("A.txt")
+print(str(num) + " words (1)")
 
-
-
-if __name__ == "__main__":
-    test_beginning()
+string = "99 bottles of beer."  # 19
+num_of_char = len(string)
+print(str(num_of_char) + " words (2)")
