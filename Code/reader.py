@@ -65,15 +65,11 @@ class FileRead:
         return data
 
 
-
-
-
-
     """
         My Functions
     """
 
-    def get_total_number_of_lines(self, file) -> int:
+    def get_total_number_of_lines(self, file: str) -> int:
         """ Returns the total number of lines of data in a file. """
         num_of_lines = 0  # Initialize line counter
         try:
@@ -84,11 +80,20 @@ class FileRead:
         except IOError:
             print(f'Unable to read from file: {file}')
 
-    def get_total_characters(self, file) -> int:
-        """ Returns the total number of characters in a file. """
+    def get_total_characters(self, file: str) -> int:
+        """ Returns the total amount of characters in a file. """
+        data = str()  # String that contains the file's contents
+        try:
+            with open(file, 'r') as open_file:
+                text = open_file.readlines()  # Reads the content of the file and stores it as a list
+                for words in text:  # Converts file contents into a string
+                    data += words
+                num_of_char = len(data)  # Gets the total number of characters
+                return num_of_char  # Returns the total number of characters
+        except IOError:
+            print(f"Unable to read file: {file}.")
 
-
-    def is_keyword_present(self, file, word) -> bool:  # if text.find(word) != -1: was debugged with ChatGPT
+    def is_keyword_present(self, file: str, word: str) -> bool:  # if text.find(word) != -1: was debugged with ChatGPT
         """ Returns whether a file contains a given word or phrase. """
         try:
             with open(file, 'r') as reader:  # Open file
@@ -101,6 +106,21 @@ class FileRead:
         except IOError:
             print("Something went wrong!")
 
-    def get_words_of_certain_length(self, length) -> list:
+    def get_words_of_certain_length(self, length: int, file: str) -> list:
         """ Returns a list that only includes words of a certain length. """
-        pass
+        # How do I remove the print-out "None" from the terminal.
+        # Add the ability to receive string data
+        list_of_words = list()
+        try:
+            with open(file, 'r') as reader:  # Open file
+                text = reader.read().split()  # Read contents and split into words
+            for word in text:
+                if len(word) == length:  # Add the word to the list if it is length required.
+                    list_of_words.append(word)  # Adds the word to the list.
+            if len(list_of_words) != 0:
+                return list_of_words  # Return list of words
+            else:
+                print(f"There are no words in the file:{file} that are the length you inputted!")
+        except IOError:
+            print(f"Unable to open this file: {file}")
+

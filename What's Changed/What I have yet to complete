@@ -1,0 +1,47 @@
+Tier 1:
+
+è Improve the encodeString method in the FileEncrypter class to …
+
+o Wrap back around if the int the char is cast to goes above 126 or below 32
+
+o Return the encoded String after printing it
+
+è Create another method called encodeData that accepts a list of Strings, encodes all of them, and returns a list of the encoded content
+
+è Create an encodeToFile method that allows data sent to it to be encoded as well as written to a custom file
+
+Tier 2:
+
+è Create content in the FileDecrypter class, such as …
+
+o A method that can decrypt a String using a given cypher/shift and then return the String
+
+o A method that decrypt the content for a list of Strings using a given cypher/shift and then return the decrypted list of Strings
+
+o Create a decodeFromFile method that reads data from a file, decodes it, and then writes the decoded information to a new file (hint: you already have all the tools built to do this, you just need to link them together in the right way!)
+
+Tier 3:
+
+è Create a randomizedEncrypter method in the FileEncrypter class, which randomly generates a cypher/shift key that it applies to a given file, creating a new file that is a copy of the original except its data is now encrypted
+
+è Create a bruteForceDecryption method in the FileDecrypter class, which should do the following:
+
+o Accept an encrypted file
+
+o Attempt to decrypt the file using a variety of cyphers/shifts
+
+o Print out each attempt (or a small portion of the content from an attempt, if there is a lot of data) to the user
+
+o Allow the user to choose if a successful decryption was found in the data. If they choose yes, end the algorithm. If they choose no, run it again with a different set of guesses
+
+Extension Problems
+
+è Update your bruteForceDecryption algorithm to …
+
+o Make its own intelligent guesses about whether or not a decryption was successful.
+
+o Hints: I’ve given you some tips on this already in the video lessons! You will need to check the contents of the decrypted message against the “AllWords” dictionary file and have your algorithm make a determination as to whether the contents appear decrypted properly or not!
+
+è Create layeredEncrytion and layeredDecryption algorithms that …
+
+o Apply different types of encryption/decryption in a row. For example, shift all letters by 3 then shift every other letter by 2 then reverse the order of all lett

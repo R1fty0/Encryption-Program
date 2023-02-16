@@ -131,26 +131,35 @@ class FileWrite:
         except IOError:
             print(f"An error occurred while trying to merge these 3 files!: {file1}, {file2}, {file3}.")
 
-    def create_copy_of_file_based_on_alphabetic_order(self, original_file):
+    def create_copy_of_file_based_on_parameter(self, original_file, word_length: bool):
+        # How to get rid of white space?
         """ Creates a copy of a given file that arranges the contents in alphabetical order."""
-        pass
+        try:
+            with open(original_file, 'r') as open_file:
+                data = open_file.read().split()  # opens file and converts content into a string
+                if word_length:
+                    sorted_words = sorted(data, key=len)  # Sorts by word length
+                    new_file_name = "create_copy_of_file_based_on_word_length"
+                elif word_length is False:
+                    sorted_words = sorted(data)  # Sorts by alphabetic order
+                    new_file_name = "create_copy_of_file_based_on_alphabetic order"
 
-    def create_copy_of_file_based_on_word_length(self, original_file):
-        """ Create a method that creates a new file with the contents of the ‘AllWords.txt’ file sorted by word length rather than alphabetically. """
-        with open(original_file, 'r') as reader:
-            text = reader.readlines()
-            for data in text:
-                pass
-                # Resort the list based on word length.
+            with open(new_file_name + ".txt", 'w') as new_open_file:  # creates new file
+                for text in sorted_words:
+                    new_open_file.write("\n" + text)  # writes content into new file
+
+        except IOError:
+            print(f"Unable to create copy of file: {original_file}.")
+
     def write_data_to_file(self, data, file):
         """ Create a method that writes all sent data (either a String or a List) to a file with a common format decided by you. """
         try:
-            if type(data) == type(str): # Write string data to file
-                with open(str(file), 'w') as f:
-                    f.write(data)
+            if type(data) == type(str):  # Write string data to file
+                with open(str(file), 'w') as open_file:
+                    open_file.write(data)
             elif type(data) == type(list):  # Write list data to file
-                with open(str(file), 'a') as f:
+                with open(str(file), 'a') as open_file:
                     for text in data:
-                        f.write(text)
+                        open_file.write(text)
         except IOError:
             print(f"Something went wrong when trying to write data to this file: {file}.")

@@ -1,0 +1,11 @@
+- Completed all To-Do methods:
+    - merge_files
+    - create_copy_of_file_based_on_parameter
+    - write_data_to_file
+    - get_total_number_of_lines
+    - get_total_characters
+    - is_keyword_present
+    - get_words_of_certain_length
+
+
+- Combined these two methods into one: create_copy_of_file_based_on_alphabetic_order + create_copy_of_file_based_on_word_length = create_copy_of_file_based_on_parameter

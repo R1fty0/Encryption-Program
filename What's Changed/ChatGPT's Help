@@ -1,0 +1,8 @@
+Debugging for these:
+- get_total_characters()
+- is_keyword_present()
+- create_copy_of_file_based_on_word_length() -> now is apart of create_copy_of_file_based_on_parameter()
+- get_words_of_certain_length
+
+An example to base my off of:
+- create_copy_of_file_based_on_word_length()
