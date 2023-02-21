@@ -6,3 +6,5 @@ Debugging for these:
 
 An example to base my off of:
 - create_copy_of_file_based_on_word_length()
+
+An explanation for what this means: Wrap back around if the int the char is cast to goes above 126 or below 32

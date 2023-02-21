@@ -1,11 +1,38 @@
 - Completed all To-Do methods:
-    - merge_files
-    - create_copy_of_file_based_on_parameter
-    - write_data_to_file
-    - get_total_number_of_lines
-    - get_total_characters
-    - is_keyword_present
-    - get_words_of_certain_length
+    1.merge_files()
 
+    2.create_copy_of_file_based_on_parameter()
+
+    3.write_data_to_file()
+
+    4.get_total_number_of_lines()
+
+    5.get_total_characters()
+
+    6.is_keyword_present()
+
+    7.get_words_of_certain_length()
 
 - Combined these two methods into one: create_copy_of_file_based_on_alphabetic_order + create_copy_of_file_based_on_word_length = create_copy_of_file_based_on_parameter
+
+
+"""
+    Tiered Problems
+"""
+
+Tier 1:
+- Changed the name: encryptString() -> encodeString()
+
+- Return the encoded String after printing it
+
+- Removed this:
+def __init__(self, character, number, message, key):
+        self.character = character
+        self.number = number
+        self.message = message
+        self.key = key
+
+- Wrap back around if the int the char is cast to goes above 126 or below 32  * May be incomplete
+
+- Create another method called encodeData that accepts a list of Strings, encodes all of them, and returns a list of the encoded content
+
