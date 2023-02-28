@@ -4,8 +4,7 @@ from writer import FileWrite
 
 encoder = FileEncrypter()
 
-encoder.encode_string("Bruh", 1) # CSVI (+1)
-print("----------------------------------")
-encoder.encode_string("Bruh", -1) # AQTG (-1)
+
+encoder.encode_to_file('EncodeToFile.txt', 'bruh', 1)  # csvi
 
 

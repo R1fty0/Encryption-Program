@@ -1,4 +1,6 @@
 import sys
+from reader import FileRead
+from writer import FileWrite
 
 
 class FileEncrypter:
@@ -9,7 +11,7 @@ class FileEncrypter:
         """ Returns the Unicode code point for the given character in the ASCII encoding. """
         return ord(character)
 
-    def convertBackToChar(self, number):
+    def convert_back_to_char(self, number):
         return chr(number)
 
     def encode_string(self, message: str, cipher_key: int) -> str:
@@ -37,10 +39,17 @@ class FileEncrypter:
         except TypeError:
             print("An error occurred.")
 
-
-    def encode_to_file(self, new_file_name: str, data):
+    def encode_to_file(self, new_file_name, data, encryption_key):
+        # TypeError: FileWrite.writeStringToFile() missing 1 required positional argument: 'data' (Line 46)
         """ Data given will be encoded as well as written to a custom file. """
-        pass
+
+        if isinstance(data, str):  # if data is a string
+            data = self.encode_string(data, encryption_key)  # Encode data
+            FileWrite.writeStringToFile(new_file_name, data)  # Write data to file
+
+        elif isinstance(data, list):  # if data is a list
+            data = self.encode_list_of_data(data, encryption_key)  # Encodes data
+            FileWrite.writeListDataToFile(new_file_name, data)  # Writes data to file
 
     def encode_list_of_data(self, data: list, cipher_key) -> list:
         """ Accepts a list of Strings, encodes all of them, and returns a list of the encoded content. """
@@ -49,7 +58,6 @@ class FileEncrypter:
             for string in data:  # Encodes each string in list of data
                 encoded_data = self.encode_string(string, cipher_key)
                 encoded_content.append(encoded_data)
-
             return encoded_content  # Returns list containing encoded data
         except TypeError:
             print("The data or cipher key you inputted is invalid. Please try again and enter a proper value for both attributes.")

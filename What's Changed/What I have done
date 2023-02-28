@@ -36,3 +36,4 @@ def __init__(self, character, number, message, key):
 
 - Create another method called encodeData that accepts a list of Strings, encodes all of them, and returns a list of the encoded content
 
+- Create an encodeToFile method that allows data sent to it to be encoded as well as written to a custom file

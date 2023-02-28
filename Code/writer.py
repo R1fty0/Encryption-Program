@@ -15,11 +15,11 @@ class FileWrite:
         except IOError:
             print('Error writing to file: ', fileName)
 
-    def writeStringToFile(self, fileName, stringData):
+    def writeStringToFile(self, fileName, data):
         """ Write String data to file, appending onto exiting file contents """
         try:
             with open(fileName, 'a') as writer:
-                writer.write(stringData)
+                writer.write(data)
         except IOError:
             print('Error writing to file: ', fileName)
 
@@ -32,7 +32,7 @@ class FileWrite:
         except IOError:
             print('Error writing to file: ', fileName)
 
-    def writeDataToFile(self, fileName, data):
+    def writeListDataToFile(self, fileName, data):
         """ Write list data to file, appending onto existing file contents """
         try:
             with open(fileName, 'a') as writer:
