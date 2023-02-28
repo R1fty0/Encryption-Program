@@ -1,10 +1,11 @@
 from encryption import FileEncrypter
+from decryption import FileDecrypter
 from reader import FileRead
 from writer import FileWrite
 
 encoder = FileEncrypter()
+decoder = FileDecrypter()
 
-
-encoder.encode_to_file('EncodeToFile.txt', 'bruh', 1)  # csvi
+decoder.decrypt_string("csvi", 1)
 
 

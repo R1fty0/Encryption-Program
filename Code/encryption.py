@@ -16,7 +16,7 @@ class FileEncrypter:
 
     def encode_string(self, message: str, cipher_key: int) -> str:
         """ Encodes a given string using a Cesarean cipher and returns the encoded string. """
-        encryptedString = ''
+        encrypted_string = ''
         try:
             messageList = list(message)
 
@@ -31,10 +31,10 @@ class FileEncrypter:
                 else:
                     # encrypts the character based on the cipher's key
                     new_encoded_char = chr(char_unicode + cipher_key)
-                    encryptedString += new_encoded_char
+                    encrypted_string += new_encoded_char
 
-            print(f"Encrypted message: {encryptedString}")  # prints the encoded string
-            return encryptedString  # returns the encoded string
+            print(f"Encrypted message: {encrypted_string}")  # prints the encoded string
+            return encrypted_string  # returns the encoded string
 
         except TypeError:
             print("An error occurred.")
