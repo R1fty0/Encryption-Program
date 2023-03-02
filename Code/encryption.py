@@ -1,18 +1,9 @@
-import sys
-from reader import FileRead
-from writer import FileWrite
-
 
 class FileEncrypter:
-    def __init__(self):
-        print("File encrypter created!")
-
-    def get_char_unicode_val(self, character):
-        """ Returns the Unicode code point for the given character in the ASCII encoding. """
-        return ord(character)
-
-    def convert_back_to_char(self, number):
-        return chr(number)
+    def __init__(self, file_basics, file_reader, file_writer):
+        self.basics = file_basics
+        self.reader = file_reader
+        self.writer = file_writer
 
     def encode_string(self, message: str, cipher_key: int) -> str:
         """ Encodes a given string using a Cesarean cipher and returns the encoded string. """
@@ -40,16 +31,8 @@ class FileEncrypter:
             print("An error occurred.")
 
     def encode_to_file(self, new_file_name, data, encryption_key):
-        # TypeError: FileWrite.writeStringToFile() missing 1 required positional argument: 'data' (Line 46)
         """ Data given will be encoded as well as written to a custom file. """
 
-        if isinstance(data, str):  # if data is a string
-            data = self.encode_string(data, encryption_key)  # Encode data
-            FileWrite.writeStringToFile(new_file_name, data)  # Write data to file
-
-        elif isinstance(data, list):  # if data is a list
-            data = self.encode_list_of_data(data, encryption_key)  # Encodes data
-            FileWrite.writeListDataToFile(new_file_name, data)  # Writes data to file
 
     def encode_list_of_data(self, data: list, cipher_key) -> list:
         """ Accepts a list of Strings, encodes all of them, and returns a list of the encoded content. """

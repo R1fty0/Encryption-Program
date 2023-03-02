@@ -4,8 +4,9 @@
 
 class FileWrite:
 
-    def __init__(self):
+    def __init__(self, basics):
         print('File writer created!')
+        self.basics = basics
 
     def writeStringOverFile(self, fileName, stringData):
         """ Write String data to file, overwriting previous file contents """
@@ -125,15 +126,15 @@ class FileWrite:
             for file in files:
                 with open(file, 'r') as f:
                     content = f.readlines()  # reads content of file
-                    with open("merged files.txt", "a") as f:
+                    with open("merged files.txt", "a") as new_file:
                         for text in content:
-                            f.write(f"\n{text}")  # adds content of original file to new file.
+                            new_file.write(f"\n{text}")  # adds content of original file to new file.
         except IOError:
             print(f"An error occurred while trying to merge these 3 files!: {file1}, {file2}, {file3}.")
 
     def create_copy_of_file_based_on_parameter(self, original_file, word_length: bool):
         # How to get rid of white space?
-        """ Creates a copy of a given file that arranges the contents in alphabetical order."""
+        """ Creates a copy of a given file that arranges the contents in alphabetical order or word length."""
         try:
             with open(original_file, 'r') as open_file:
                 data = open_file.read().split()  # opens file and converts content into a string
@@ -154,10 +155,10 @@ class FileWrite:
     def write_data_to_file(self, data, file):
         """ Create a method that writes all sent data (either a String or a List) to a file with a common format decided by you. """
         try:
-            if type(data) == type(str):  # Write string data to file
+            if self.basics.is_given_data_type(data, str):  # Write string data to file
                 with open(str(file), 'w') as open_file:
                     open_file.write(data)
-            elif type(data) == type(list):  # Write list data to file
+            elif self.basics.is_given_data_type(data, list): # Write list data to file
                 with open(str(file), 'a') as open_file:
                     for text in data:
                         open_file.write(text)

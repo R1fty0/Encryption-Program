@@ -1,16 +1,3 @@
-# Python file open(fileName, access mode)
-# access modes:
-# 'r' = read only mode
-# 'w' = write only mode - erases everything that was there already!
-# 'a' = append mode (write without replacing data)
-
-
-# Python file functions
-# read() - return whole file
-# readline() - returns one line of the file
-# readlines() = returns ALL lines in a file (1 line per entry)
-
-
 class FileRead:
 
     def __init__(self):

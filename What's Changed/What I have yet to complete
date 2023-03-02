@@ -1,11 +1,9 @@
 Tier 1:
-
-- Create an encodeToFile method that allows data sent to it to be encoded as well as written to a custom file
+- All DONE!
 
 Tier 2:
 
 Create content in the FileDecrypter class, such as …
-
 - A method that can decrypt a String using a given cypher/shift and then return the String
 
 - A method that decrypt the content for a list of Strings using a given cypher/shift and then return the decrypted list of Strings

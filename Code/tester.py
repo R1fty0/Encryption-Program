@@ -1,11 +1,13 @@
-from encryption import FileEncrypter
-from decryption import FileDecrypter
-from reader import FileRead
-from writer import FileWrite
+def start():
+    from application import Application
+    user_account = Application()
+    test_feature()
 
-encoder = FileEncrypter()
-decoder = FileDecrypter()
 
-decoder.decrypt_string("csvi", 1)
+def test_feature():
+    print("Nothing is being testing rn.")
 
+
+if __name__ == "__main__":
+    start()
 
